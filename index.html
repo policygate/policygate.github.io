@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PolicyGate — Runtime Policy Enforcement for AI Agents</title>
+  <meta name="description" content="PolicyGate is a runtime policy enforcement framework for AI agents. Detect misconfigurations before they become attack surfaces.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">PolicyGate</a>
+      <div class="nav-links">
+        <a href="#problem">Why</a>
+        <a href="#about">About</a>
+        <a href="#clawshield">ClawShield</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="https://github.com/policygate" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Runtime policy enforcement<br>for AI agents.</h1>
+      <p class="hero-sub">Detect dangerous misconfigurations before they become exposed attack surfaces.</p>
+      <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section id="problem" class="section">
+    <div class="container">
+      <h2>The Problem</h2>
+      <p class="section-lead">AI agents are deployed with dangerous defaults. Every day.</p>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">&#9888;</div>
+          <p>Publicly bound to <code>0.0.0.0</code> with no authentication</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#9888;</div>
+          <p>Running inside privileged or root containers</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#9888;</div>
+          <p>API keys sitting in plaintext <code>.env</code> files</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#9888;</div>
+          <p>Config files world-writable on shared hosts</p>
+        </div>
+      </div>
+      <p class="section-note">These are not theoretical risks — they are common misconfigurations that ClawShield detects today.</p>
+    </div>
+  </section>
+
+  <!-- About PolicyGate -->
+  <section id="about" class="section section-alt">
+    <div class="container">
+      <h2>What is PolicyGate?</h2>
+      <p class="section-lead">A runtime policy enforcement framework for AI agents.</p>
+      <p>PolicyGate provides modular, rule-based security tools that audit agent deployments against configurable policy sets. Each module targets a specific attack surface — network exposure, container posture, secrets handling, file permissions — and outputs deterministic, automation-ready results.</p>
+      <p>PolicyGate is designed for CI pipelines, pre-deploy checks, and continuous monitoring. It exits non-zero when security thresholds are exceeded.</p>
+    </div>
+  </section>
+
+  <!-- ClawShield -->
+  <section id="clawshield" class="section">
+    <div class="container">
+      <h2>ClawShield</h2>
+      <p class="section-lead">The first PolicyGate module. Available now.</p>
+      <div class="product-card">
+        <div class="product-header">
+          <h3>ClawShield <span class="version-badge">v0.3.0</span></h3>
+          <p>Security audit tool for OpenClaw deployments</p>
+        </div>
+        <div class="product-checks">
+          <div class="check-group">
+            <h4>What it checks</h4>
+            <ul>
+              <li>Public bind address with auth disabled</li>
+              <li>Containers running as root or privileged</li>
+              <li>API keys in .env and config files</li>
+              <li>World-writable config and secrets files</li>
+            </ul>
+          </div>
+          <div class="check-group">
+            <h4>Install</h4>
+            <div class="code-block">
+              <code>pip install clawshield</code>
+            </div>
+            <h4>Run</h4>
+            <div class="code-block">
+              <code>clawshield path/to/openclaw.yaml</code>
+            </div>
+            <h4>CI Mode</h4>
+            <div class="code-block">
+              <code>clawshield --fail-on high --json config.yaml</code>
+            </div>
+          </div>
+        </div>
+        <div class="product-links">
+          <a href="https://pypi.org/project/clawshield/" target="_blank" rel="noopener" class="btn btn-secondary">PyPI</a>
+          <a href="https://github.com/policygate/clawshield" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="section section-alt">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-number">1</div>
+          <h3>Scan</h3>
+          <p>Modular scanners collect facts from runtime configs, containers, environment files, and file permissions.</p>
+        </div>
+        <div class="pipeline-arrow">&rarr;</div>
+        <div class="pipeline-step">
+          <div class="step-number">2</div>
+          <h3>Evaluate</h3>
+          <p>The policy engine evaluates collected facts against YAML-defined rules with configurable severity levels.</p>
+        </div>
+        <div class="pipeline-arrow">&rarr;</div>
+        <div class="pipeline-step">
+          <div class="step-number">3</div>
+          <h3>Report</h3>
+          <p>Structured JSON output with deterministic schema — designed for CI pipelines and automation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="section">
+    <div class="container">
+      <h2>Roadmap</h2>
+      <p class="section-lead">What's coming next.</p>
+      <div class="roadmap-grid">
+        <div class="roadmap-item">
+          <h4>Continuous Monitoring</h4>
+          <p>Watch mode for live detection of configuration drift.</p>
+        </div>
+        <div class="roadmap-item">
+          <h4>Additional Runtime Adapters</h4>
+          <p>Support for more AI agent frameworks beyond OpenClaw.</p>
+        </div>
+        <div class="roadmap-item">
+          <h4>Policy Bundles</h4>
+          <p>Pre-built policy sets for common deployment profiles.</p>
+        </div>
+        <div class="roadmap-item">
+          <h4>Expanded Docker Checks</h4>
+          <p>Deeper container hardening analysis and network policies.</p>
+        </div>
+        <div class="roadmap-item">
+          <h4>Advanced Secrets Detection</h4>
+          <p>Entropy-based analysis and broader credential formats.</p>
+        </div>
+        <div class="roadmap-item">
+          <h4>Signed Policy Packs</h4>
+          <p>Tamper-proof, verifiable policy distribution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section id="waitlist" class="section section-alt">
+    <div class="container waitlist-container">
+      <h2>Get Early Access</h2>
+      <p class="section-lead">Join the waitlist for PolicyGate updates, new modules, and early access.</p>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="waitlist-form">
+        <input type="email" name="email" placeholder="you@company.com" required>
+        <button type="submit" class="btn btn-primary">Join Waitlist</button>
+      </form>
+      <p class="form-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo">PolicyGate</span>
+        <p>&copy; 2026 PolicyGate. Apache 2.0 License.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/policygate" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://pypi.org/project/clawshield/" target="_blank" rel="noopener">PyPI</a>
+        <a href="#waitlist">Waitlist</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
