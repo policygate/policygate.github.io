@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PolicyGate — Runtime Policy Enforcement for AI Agents</title>
-  <meta name="description" content="PolicyGate is a runtime policy enforcement framework for AI agents. Detect misconfigurations before they become attack surfaces.">
+  <title>PolicyGate — Runtime Governance for Autonomous Systems</title>
+  <meta name="description" content="Deterministic runtime governance for AI agents and autonomous capital systems. Policy enforcement, audit trails, and security scanning.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,8 +15,8 @@
       <a href="#" class="nav-logo">PolicyGate</a>
       <div class="nav-links">
         <a href="#problem">Why</a>
-        <a href="#about">About</a>
-        <a href="#clawshield">ClawShield</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#products">Products</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#roadmap">Roadmap</a>
         <a href="https://github.com/policygate" target="_blank" rel="noopener">GitHub</a>
@@ -27,9 +27,9 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Runtime policy enforcement<br>for AI agents.</h1>
-      <p class="hero-sub">Detect dangerous misconfigurations before they become exposed attack surfaces.</p>
-      <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
+      <h1>One kernel.<br>Deterministic governance.</h1>
+      <p class="hero-sub">PolicyGate is a deterministic policy engine that governs autonomous systems at runtime. Same kernel, two verticals: AI agents and autonomous trading. Every decision logged. Every action governed.</p>
+      <a href="#products" class="btn btn-primary">See What We've Shipped</a>
     </div>
   </section>
 
@@ -37,7 +37,7 @@
   <section id="problem" class="section">
     <div class="container">
       <h2>The Problem</h2>
-      <p class="section-lead">AI agents are deployed with dangerous defaults. Every day.</p>
+      <p class="section-lead">Autonomous systems operate with dangerous defaults. Every day.</p>
       <div class="problem-grid">
         <div class="problem-card">
           <div class="problem-icon">&#9888;</div>
@@ -55,60 +55,121 @@
           <div class="problem-icon">&#9888;</div>
           <p>Config files world-writable on shared hosts</p>
         </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#9888;</div>
+          <p>Trading bots executing without position limits or drawdown controls</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#9888;</div>
+          <p>Autonomous strategies with no audit trail for regulatory compliance</p>
+        </div>
       </div>
-      <p class="section-note">These are not theoretical risks — they are common misconfigurations that ClawShield detects today.</p>
+      <p class="section-note">These are real risks. ClawShield detects agent misconfigurations today. PolicyGate Capital enforces trading constraints at runtime.</p>
     </div>
   </section>
 
-  <!-- About PolicyGate -->
-  <section id="about" class="section section-alt">
+  <!-- Architecture -->
+  <section id="architecture" class="section section-alt">
     <div class="container">
-      <h2>What is PolicyGate?</h2>
-      <p class="section-lead">A runtime policy enforcement framework for AI agents.</p>
-      <p>PolicyGate provides modular, rule-based security tools that audit agent deployments against configurable policy sets. Each module targets a specific attack surface — network exposure, container posture, secrets handling, file permissions — and outputs deterministic, automation-ready results.</p>
-      <p>PolicyGate is designed for CI pipelines, pre-deploy checks, and continuous monitoring. It exits non-zero when security thresholds are exceeded.</p>
+      <h2>How PolicyGate Works</h2>
+      <p class="section-lead">One kernel. Two verticals. Every decision deterministic.</p>
+      <div class="architecture-diagram">
+<pre>
+&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;              PolicyGate Kernel                   &#9474;
+&#9474;   Intent &#8594; Policy Evaluation &#8594; Decision &#8594; Log   &#9474;
+&#9474;   (frozen dataclasses &#183; deterministic replay)    &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+           &#9474;                      &#9474;
+ &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;  &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+ &#9474;  PolicyGate Agent  &#9474;  &#9474; PolicyGate Capital &#9474;
+ &#9474;  AI agent tool     &#9474;  &#9474; Trading order      &#9474;
+ &#9474;  governance        &#9474;  &#9474; governance         &#9474;
+ &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;  &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+           &#9474;                      &#9474;
+ &#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+ &#9474;              ClawShield                      &#9474;
+ &#9474;   Static pre-deployment security scanning    &#9474;
+ &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
+</pre>
+      </div>
+      <div class="architecture-text">
+        <p>The core primitive: every action is an <strong>intent</strong> that passes through policy evaluation before execution.</p>
+        <p>The same kernel powers both verticals &mdash; frozen dataclasses, deterministic replay, append-only audit trails.</p>
+        <ul>
+          <li><strong>PolicyGate Agent</strong> &mdash; governs AI agent tool access via YAML policy DSL</li>
+          <li><strong>PolicyGate Capital</strong> &mdash; governs autonomous trading (position limits, drawdown controls, order validation)</li>
+          <li><strong>ClawShield</strong> &mdash; static pre-deployment scanning sits below both runtime layers</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- ClawShield -->
-  <section id="clawshield" class="section">
+  <!-- Products -->
+  <section id="products" class="section">
     <div class="container">
-      <h2>ClawShield</h2>
-      <p class="section-lead">The first PolicyGate module. Available now.</p>
-      <div class="product-card">
-        <div class="product-header">
-          <h3>ClawShield <span class="version-badge">v0.3.0</span></h3>
-          <p>Security audit tool for OpenClaw deployments</p>
-        </div>
-        <div class="product-checks">
-          <div class="check-group">
-            <h4>What it checks</h4>
-            <ul>
-              <li>Public bind address with auth disabled</li>
-              <li>Containers running as root or privileged</li>
-              <li>API keys in .env and config files</li>
-              <li>World-writable config and secrets files</li>
-            </ul>
+      <h2>Shipped</h2>
+      <p class="section-lead">Three packages. All open source. All on PyPI or GitHub.</p>
+      <div class="products-grid">
+
+        <div class="product-card product-card-compact">
+          <div class="product-header">
+            <h3>PolicyGate</h3>
+            <p>Runtime governance for AI agents</p>
           </div>
-          <div class="check-group">
-            <h4>Install</h4>
-            <div class="code-block">
-              <code>pip install clawshield</code>
-            </div>
-            <h4>Run</h4>
-            <div class="code-block">
-              <code>clawshield path/to/openclaw.yaml</code>
-            </div>
-            <h4>CI Mode</h4>
-            <div class="code-block">
-              <code>clawshield --fail-on high --json config.yaml</code>
-            </div>
+          <span class="badge">93 tests</span>
+          <ul class="product-features">
+            <li>YAML policy DSL</li>
+            <li>Glob matching</li>
+            <li>Rate limits</li>
+            <li>guard() / evaluate() SDK</li>
+            <li>LangChain integration</li>
+          </ul>
+          <div class="product-links">
+            <a href="https://github.com/policygate/policygate" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
           </div>
         </div>
-        <div class="product-links">
-          <a href="https://pypi.org/project/clawshield/" target="_blank" rel="noopener" class="btn btn-secondary">PyPI</a>
-          <a href="https://github.com/policygate/clawshield" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+
+        <div class="product-card product-card-compact">
+          <div class="product-header">
+            <h3>PolicyGate Capital</h3>
+            <p>Runtime governance for autonomous trading</p>
+          </div>
+          <span class="badge">v0.2.0</span>
+          <ul class="product-features">
+            <li>Position limits</li>
+            <li>Drawdown controls</li>
+            <li>Order validation</li>
+            <li>Execution throttles</li>
+            <li>Replayable audit trails</li>
+          </ul>
+          <div class="product-links">
+            <a href="https://pypi.org/project/policygate-capital/" target="_blank" rel="noopener" class="btn btn-secondary">PyPI</a>
+            <a href="https://github.com/policygate/policygate-capital" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+          </div>
         </div>
+
+        <div class="product-card product-card-compact">
+          <div class="product-header">
+            <h3>ClawShield <span class="version-badge">v0.4.1</span></h3>
+            <p>Static security audit for AI agent deployments</p>
+          </div>
+          <ul class="product-features">
+            <li>11 detection rules</li>
+            <li>Network exposure</li>
+            <li>Auth &amp; containers</li>
+            <li>Sandbox, shell, browser</li>
+            <li>Secrets, permissions, logging</li>
+          </ul>
+          <div class="code-block">
+            <code>pip install clawshield</code>
+          </div>
+          <div class="product-links">
+            <a href="https://pypi.org/project/clawshield/" target="_blank" rel="noopener" class="btn btn-secondary">PyPI</a>
+            <a href="https://github.com/policygate/clawshield" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -121,19 +182,19 @@
         <div class="pipeline-step">
           <div class="step-number">1</div>
           <h3>Scan</h3>
-          <p>Modular scanners collect facts from runtime configs, containers, environment files, and file permissions.</p>
+          <p>ClawShield audits agent configs, containers, secrets, and permissions against security policies before deployment.</p>
         </div>
         <div class="pipeline-arrow">&rarr;</div>
         <div class="pipeline-step">
           <div class="step-number">2</div>
-          <h3>Evaluate</h3>
-          <p>The policy engine evaluates collected facts against YAML-defined rules with configurable severity levels.</p>
+          <h3>Enforce</h3>
+          <p>The PolicyGate kernel evaluates every intent against policy rules at runtime &mdash; deterministic, no exceptions.</p>
         </div>
         <div class="pipeline-arrow">&rarr;</div>
         <div class="pipeline-step">
           <div class="step-number">3</div>
-          <h3>Report</h3>
-          <p>Structured JSON output with deterministic schema — designed for CI pipelines and automation.</p>
+          <h3>Audit</h3>
+          <p>Every decision is logged with full context. Append-only audit trails enable deterministic replay and compliance reporting.</p>
         </div>
       </div>
     </div>
@@ -143,44 +204,82 @@
   <section id="roadmap" class="section">
     <div class="container">
       <h2>Roadmap</h2>
-      <p class="section-lead">What's coming next.</p>
+
+      <h3 class="roadmap-subheading">Shipped</h3>
+      <div class="roadmap-shipped">
+        <div class="roadmap-shipped-item">
+          <span class="shipped-check">&#10003;</span>
+          <div>
+            <h4>PolicyGate kernel</h4>
+            <p>Deterministic policy engine, 93 tests, on GitHub</p>
+          </div>
+        </div>
+        <div class="roadmap-shipped-item">
+          <span class="shipped-check">&#10003;</span>
+          <div>
+            <h4>PolicyGate Capital v0.2.0</h4>
+            <p>Position limits, drawdown, order validation, audit trails, on PyPI</p>
+          </div>
+        </div>
+        <div class="roadmap-shipped-item">
+          <span class="shipped-check">&#10003;</span>
+          <div>
+            <h4>ClawShield v0.4.1</h4>
+            <p>11 detection rules, static security scanning, on PyPI</p>
+          </div>
+        </div>
+        <div class="roadmap-shipped-item">
+          <span class="shipped-check">&#10003;</span>
+          <div>
+            <h4>LangChain integration</h4>
+            <p>guard_tool() wraps tools with policy enforcement</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="roadmap-subheading">Next</h3>
       <div class="roadmap-grid">
         <div class="roadmap-item">
-          <h4>Continuous Monitoring</h4>
-          <p>Watch mode for live detection of configuration drift.</p>
+          <h4>Broker API Integration</h4>
+          <p>Connect PolicyGate Capital to live broker/exchange APIs for production trading governance.</p>
+        </div>
+        <div class="roadmap-item">
+          <h4>Docker-Aware Scanning</h4>
+          <p>ClawShield detects exposure from docker-compose port mappings, not just agent config.</p>
         </div>
         <div class="roadmap-item">
           <h4>Additional Runtime Adapters</h4>
           <p>Support for more AI agent frameworks beyond OpenClaw.</p>
         </div>
         <div class="roadmap-item">
+          <h4>Continuous Monitoring</h4>
+          <p>Watch mode for live detection of configuration drift.</p>
+        </div>
+        <div class="roadmap-item">
           <h4>Policy Bundles</h4>
           <p>Pre-built policy sets for common deployment profiles.</p>
-        </div>
-        <div class="roadmap-item">
-          <h4>Expanded Docker Checks</h4>
-          <p>Deeper container hardening analysis and network policies.</p>
-        </div>
-        <div class="roadmap-item">
-          <h4>Advanced Secrets Detection</h4>
-          <p>Entropy-based analysis and broader credential formats.</p>
-        </div>
-        <div class="roadmap-item">
-          <h4>Signed Policy Packs</h4>
-          <p>Tamper-proof, verifiable policy distribution.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Cofounder CTA -->
+  <section id="cofounder" class="section section-alt cofounder-section">
+    <div class="container">
+      <h2>Build With Us</h2>
+      <p class="cofounder-text">We're looking for a technical cofounder with deep systems engineering experience &mdash; event-driven architecture, deterministic runtime design, reliability engineering. If you've built infrastructure where correctness matters, let's talk.</p>
+      <a href="mailto:jon@policygate.dev" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </section>
+
   <!-- Waitlist -->
-  <section id="waitlist" class="section section-alt">
+  <section id="waitlist" class="section">
     <div class="container waitlist-container">
-      <h2>Get Early Access</h2>
-      <p class="section-lead">Join the waitlist for PolicyGate updates, new modules, and early access.</p>
+      <h2>Stay Updated</h2>
+      <p class="section-lead">Get PolicyGate updates, new releases, and early access.</p>
       <form action="https://formspree.io/f/xbdaoobj" method="POST" class="waitlist-form">
         <input type="email" name="email" placeholder="you@company.com" required>
-        <button type="submit" class="btn btn-primary">Join Waitlist</button>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
       </form>
       <p class="form-note">No spam. Unsubscribe anytime.</p>
     </div>
@@ -195,8 +294,9 @@
       </div>
       <div class="footer-links">
         <a href="https://github.com/policygate" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://pypi.org/project/clawshield/" target="_blank" rel="noopener">PyPI</a>
-        <a href="#waitlist">Waitlist</a>
+        <a href="https://pypi.org/project/clawshield/" target="_blank" rel="noopener">ClawShield PyPI</a>
+        <a href="https://pypi.org/project/policygate-capital/" target="_blank" rel="noopener">Capital PyPI</a>
+        <a href="#waitlist">Subscribe</a>
       </div>
     </div>
   </footer>

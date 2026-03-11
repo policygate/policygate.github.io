@@ -17,6 +17,8 @@
   --accent-glow: rgba(88, 166, 255, 0.15);
   --border: #30363d;
   --warning: #d29922;
+  --success: #3fb950;
+  --success-muted: rgba(63, 185, 80, 0.15);
   --code-bg: #0d1117;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
@@ -126,7 +128,7 @@ code {
 .hero-sub {
   font-size: 1.2rem;
   color: var(--text-secondary);
-  max-width: 560px;
+  max-width: 640px;
   margin: 0 auto 36px;
 }
 
@@ -224,11 +226,62 @@ code {
   font-size: 0.95rem;
 }
 
-/* === About === */
-#about p {
+/* === Architecture === */
+.architecture-diagram {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.architecture-diagram pre {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.4;
   color: var(--text-secondary);
+  display: inline-block;
+  text-align: left;
+  margin: 0;
+}
+
+.architecture-text {
   max-width: 680px;
+}
+
+.architecture-text p {
+  color: var(--text-secondary);
   margin-bottom: 16px;
+}
+
+.architecture-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.architecture-text li {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  padding: 6px 0;
+  padding-left: 18px;
+  position: relative;
+}
+
+.architecture-text li::before {
+  content: ">";
+  font-family: var(--font-mono);
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+}
+
+/* === Products Grid === */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 /* === Product Card === */
@@ -239,18 +292,25 @@ code {
   padding: 36px;
 }
 
+.product-card-compact {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
 .product-header {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 .product-header h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
 .product-header p {
   color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 .version-badge {
@@ -262,6 +322,44 @@ code {
   border-radius: 12px;
   vertical-align: middle;
   margin-left: 8px;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--accent-glow);
+  color: var(--accent);
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.product-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.product-features li {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: 3px 0;
+  padding-left: 18px;
+  position: relative;
+}
+
+.product-features li::before {
+  content: ">";
+  font-family: var(--font-mono);
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+}
+
+.product-card-compact .code-block {
+  margin-bottom: 20px;
 }
 
 .product-checks {
@@ -319,6 +417,7 @@ code {
 .product-links {
   display: flex;
   gap: 12px;
+  margin-top: auto;
 }
 
 /* === Pipeline === */
@@ -369,6 +468,49 @@ code {
 }
 
 /* === Roadmap === */
+.roadmap-subheading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+.roadmap-shipped {
+  margin-bottom: 40px;
+}
+
+.roadmap-shipped-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 20px;
+  background: var(--success-muted);
+  border: 1px solid rgba(63, 185, 80, 0.2);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.shipped-check {
+  color: var(--success);
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.roadmap-shipped-item h4 {
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.roadmap-shipped-item p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
 .roadmap-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -390,6 +532,19 @@ code {
 .roadmap-item p {
   color: var(--text-secondary);
   font-size: 0.9rem;
+}
+
+/* === Cofounder CTA === */
+.cofounder-section {
+  text-align: center;
+}
+
+.cofounder-text {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
 }
 
 /* === Waitlist === */
@@ -483,6 +638,18 @@ code {
 
   .product-checks {
     grid-template-columns: 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture-diagram {
+    padding: 16px;
+  }
+
+  .architecture-diagram pre {
+    font-size: 0.7rem;
   }
 
   .pipeline {
